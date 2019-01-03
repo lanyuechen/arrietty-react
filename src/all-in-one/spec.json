@@ -1,0 +1,17 @@
+{
+  "user": {
+    "name": "小明",
+    "age": 18
+  },
+  "list": [
+    {"id": 1, "type": "chart", "name": "饼图"},
+    {"id": 2, "type": "chart", "name": "条图"},
+    {"id": 3, "type": "chart", "name": "折线图"}
+  ],
+  "group": {
+    "corp": {
+      "id": "abc",
+      "name": "北京广播传媒有限公司"
+    }
+  }
+}
