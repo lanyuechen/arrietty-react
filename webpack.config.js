@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
   return {
     mode: argv.mode || 'development',
     entry: {
-      index: './src/index.js'
+      index: './example/index.js'
     },
     output: {
       filename: 'js/bundle.js',
@@ -21,7 +21,7 @@ module.exports = (env, argv) => {
     },
     devtool: 'source-map',
     devServer: {
-      contentBase: './src',
+      contentBase: './example',
       host: '0.0.0.0',
       historyApiFallback: true
     },
@@ -33,7 +33,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
-        template: 'src/index.html'
+        template: 'example/index.html'
       }),
       new MiniCssExtractPlugin({
         filename: "css/style.css",
@@ -47,12 +47,7 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: ['.js'],
       alias: {
-        '@': path.resolve(__dirname, 'src'),
-        lib: path.resolve(__dirname, 'src/lib'),
-        api: path.resolve(__dirname, 'src/api'),
-        components: path.resolve(__dirname, 'src/components'),
-        pages: path.resolve(__dirname, 'src/pages'),
-        config: path.resolve(__dirname, 'src/config'),
+        '@': path.resolve(__dirname, 'src')
       }
     },
     module: {

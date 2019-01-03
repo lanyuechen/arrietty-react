@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import AioDemo from './pages/all-in-one';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        hello world
+        <AioDemo />
       </div>
     );
   }

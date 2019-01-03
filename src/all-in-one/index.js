@@ -12,9 +12,10 @@ export default (spec) => (C) => class extends Component {
   }
 
   handleUpdate = (path, spec) => {
-    prepareSpec(spec, path, this.handleUpdate);
-    spec = path.split('.').reverse().reduce((p, n) => ({[n]: p}), {$merge: spec});
-    this.setState(update(this.state, spec));
+    spec = path.split('.').reverse().reduce((p, n) => ({[n]: p}), spec);
+    const state = update(this.state, spec);
+    prepareSpec(state.spec, 'spec', this.handleUpdate);
+    this.setState(state);
   };
 
   render() {
