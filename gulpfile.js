@@ -3,14 +3,12 @@
 const gulp        = require('gulp');
 const babel       = require('gulp-babel');
 const sass        = require('gulp-sass');
-const sourceMaps  = require('gulp-sourcemaps');
 const concat      = require('gulp-concat');
 
 // 编译js文件
 gulp.task('babel', function(){
   return gulp.src(['./src/**/*.js', './src/**/*.jsx'])
     .pipe(babel())
-    .pipe(sourceMaps.write('.'))
     .pipe(gulp.dest('dist'))
 });
 

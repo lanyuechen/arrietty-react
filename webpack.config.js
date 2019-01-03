@@ -6,17 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");    //提取css�
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");    //解决MiniCssExtractPlugin导致的重复问题
 
 module.exports = (env, argv) => {
-  const plugins = [
-    new HtmlWebpackPlugin({
-      inject: true,
-      template: 'src/index.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: "css/style.css",
-      chunkFilename: "[id].css"
-    })
-  ];
-
   if (argv.mode !== 'production') {   //非开发或生产环境,分析用
     //plugins.push(new BundleAnalyzerPlugin());
   }
@@ -41,13 +30,19 @@ module.exports = (env, argv) => {
     //    new OptimizeCSSAssetsPlugin({})
     //  ]
     //},
-    plugins,
+    plugins: [
+      new HtmlWebpackPlugin({
+        inject: true,
+        template: 'src/index.html'
+      }),
+      new MiniCssExtractPlugin({
+        filename: "css/style.css",
+        chunkFilename: "[id].css"
+      })
+    ],
     externals: {
       "react": "React",
-      "react-dom": "ReactDOM",
-      "react-router-dom": "ReactRouterDOM",
-      "antd": "antd",
-      "d3": "d3"
+      "react-dom": "ReactDOM"
     },
     resolve: {
       extensions: ['.js'],
