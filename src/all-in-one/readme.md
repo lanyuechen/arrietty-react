@@ -23,3 +23,28 @@ class Foo extends React.Component {
 }
 
 ```
+
+### $update 参数规范
+
+  * `{$push: array}` `push()` all the items in `array` on the target.
+  * `{$unshift: array}` `unshift()` all the items in `array` on the target.
+  * `{$splice: array of arrays}` for each item in `arrays` call `splice()` on
+  the target with the parameters provided by the item. ***Note:** The items in
+  the array are applied sequentially, so the order matters. The indices of the
+  target may change during the operation.*
+  * `{$set: any}` replace the target entirely.
+  * `{$toggle: array of strings}` toggles a list of boolean fields from the
+  target object.
+  * `{$unset: array of strings}` remove the list of keys in `array` from the
+  target object.
+  * `{$merge: object}` merge the keys of `object` with the target.
+  * `{$apply: function}` passes in the current value to the function and
+  updates it with the new returned value.
+  * `{$add: array of objects}` add a value to a `Map` or `Set`. When adding to a
+  `Set` you pass in an array of objects to add, when adding to a Map, you pass
+  in `[key, value]` arrays like so:
+  `update(myMap, {$add: [['foo', 'bar'], ['baz', 'boo']]})`
+  * `{$remove: array of strings}` remove the list of keys in array from a `Map`
+  or `Set`.
+
+> 具体参照 [immutability-helper](https://github.com/kolodny/immutability-helper)
