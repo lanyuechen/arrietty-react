@@ -3,10 +3,12 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 
 import AioDemo from './all-in-one';
 import FlexDemo from './flex';
+import AspectRatioBoxDemo from './aspect-ratio-box';
 
 const DEMO = {
   '/all-in-one': AioDemo,
-  '/flex': FlexDemo
+  '/flex': FlexDemo,
+  '/aspect-ratio-box': AspectRatioBoxDemo
 };
 
 export default class Home extends Component {
