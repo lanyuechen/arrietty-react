@@ -12,9 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "immutability-helper": "^2.8.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "immutability-helper": "^2.8.1"
+    "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",

@@ -7,7 +7,7 @@ import Todo from './todo';
 import SPEC from './spec.json';
 
 @Aio(SPEC)
-export default class Demo extends Component {
+export default class extends Component {
   constructor(props) {
     super(props);
   }

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
-import AioDemo from './pages/all-in-one';
+import Home from './pages';
+
+import './style.scss';
 
 class App extends Component {
   constructor(props) {
@@ -10,9 +13,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <AioDemo />
-      </div>
+      <Router>
+        <Switch>
+          <Route path="/" component={Home} />
+          <Redirect to="/" />
+        </Switch>
+      </Router>
     );
   }
 }
