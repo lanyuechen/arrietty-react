@@ -19,9 +19,9 @@ export default class extends Component {
     const { ratio, style = {}, width, children } = this.props;
     
     return (
-      <div className="aspect-ratio-box" style={{width, ...style}}>
-        <div className="aspect-ratio-box-bg" style={{paddingBottom: `${ratio * 100}%`}}> </div>
-        <div className="aspect-ratio-box-container">
+      <div className="ar-aspect-ratio-box" style={{width, ...style}}>
+        <div className="ar-aspect-ratio-box-bg" style={{paddingBottom: `${ratio * 100}%`}}> </div>
+        <div className="ar-aspect-ratio-box-container">
           {children}
         </div>
       </div>

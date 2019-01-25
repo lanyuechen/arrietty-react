@@ -28,6 +28,7 @@ export default class Flex extends Component {
               ...child,
               props: {
                 ...child.props,
+                size: undefined,
                 [type]: child.props.size
               }
             };

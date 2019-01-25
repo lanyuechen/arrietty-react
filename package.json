@@ -2,7 +2,7 @@
   "name": "arrietty-react",
   "version": "1.0.0",
   "description": "arrietty-react",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dist": "rm -rf dist && gulp",
     "test": "karma start",
