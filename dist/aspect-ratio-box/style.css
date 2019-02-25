@@ -1,0 +1,13 @@
+.ar-aspect-ratio-box {
+  position: relative;
+  overflow: hidden; }
+  .ar-aspect-ratio-box.ar-aspect-ratio-box-bg {
+    width: 100%;
+    height: 0;
+    pointer-events: none; }
+  .ar-aspect-ratio-box .ar-aspect-ratio-box-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; }
