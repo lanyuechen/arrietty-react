@@ -4,11 +4,13 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import AioDemo from './all-in-one';
 import FlexDemo from './flex';
 import AspectRatioBoxDemo from './aspect-ratio-box';
+import JsonEditor from './json-editor';
 
 const DEMO = {
   '/all-in-one': AioDemo,
   '/flex': FlexDemo,
-  '/aspect-ratio-box': AspectRatioBoxDemo
+  '/aspect-ratio-box': AspectRatioBoxDemo,
+  '/json-editor': JsonEditor
 };
 
 export default class Home extends Component {

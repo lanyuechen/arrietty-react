@@ -9,8 +9,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));
-
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
@@ -21,54 +19,48 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var _react = _interopRequireWildcard(require("react"));
 
-require("./style.css");
-
-/**
- * 宽高比固定的容器
- * ratio: 高度和宽度的比值
- */
 var _default =
 /*#__PURE__*/
 function (_Component) {
   (0, _inherits2.default)(_default, _Component);
 
   function _default(props) {
+    var _this;
+
     (0, _classCallCheck2.default)(this, _default);
-    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_default).call(this, props));
+    _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_default).call(this, props));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "handleChange", function (e) {
+      var onChange = _this.props.onChange;
+      onChange && onChange(e.target.value);
+    });
+    return _this;
   }
 
   (0, _createClass2.default)(_default, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return nextProps.value !== this.props.value;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          ratio = _this$props.ratio,
-          _this$props$style = _this$props.style,
-          style = _this$props$style === void 0 ? {} : _this$props$style,
-          width = _this$props.width,
-          children = _this$props.children;
-      return _react.default.createElement("div", {
-        className: "ar-aspect-ratio-box",
-        style: (0, _objectSpread2.default)({
-          width: width
-        }, style)
-      }, _react.default.createElement("div", {
-        className: "ar-aspect-ratio-box-bg",
-        style: {
-          paddingBottom: "".concat(ratio * 100, "%")
-        }
-      }, " "), _react.default.createElement("div", {
-        className: "ar-aspect-ratio-box-container"
-      }, children));
+          name = _this$props.name,
+          value = _this$props.value;
+      return _react.default.createElement("label", null, name, ":", _react.default.createElement("input", {
+        name: name,
+        value: value,
+        onChange: this.handleChange
+      }));
     }
   }]);
   return _default;
 }(_react.Component);
 
 exports.default = _default;
-(0, _defineProperty2.default)(_default, "defaultProps", {
-  ratio: 0.618
-});

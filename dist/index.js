@@ -23,9 +23,17 @@ Object.defineProperty(exports, "AspectRatioBox", {
     return _aspectRatioBox.default;
   }
 });
+Object.defineProperty(exports, "JsonEditor", {
+  enumerable: true,
+  get: function get() {
+    return _jsonEditor.default;
+  }
+});
 
 var _flex = _interopRequireDefault(require("./flex"));
 
 var _allInOne = _interopRequireDefault(require("./all-in-one"));
 
 var _aspectRatioBox = _interopRequireDefault(require("./aspect-ratio-box"));
+
+var _jsonEditor = _interopRequireDefault(require("./json-editor"));
