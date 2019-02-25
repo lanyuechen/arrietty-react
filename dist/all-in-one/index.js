@@ -31,7 +31,7 @@ var _immutabilityHelper = _interopRequireDefault(require("immutability-helper"))
 
 var _prepareSpec = _interopRequireDefault(require("./prepare-spec"));
 
-var _default = function _default(spec) {
+var _default = function _default(spec, onChange) {
   return function (C) {
     return (
       /*#__PURE__*/
@@ -50,12 +50,15 @@ var _default = function _default(spec) {
             var state = (0, _immutabilityHelper.default)(_this.state, spec);
             (0, _prepareSpec.default)(state.spec, 'spec', _this.handleUpdate);
 
-            _this.setState(state);
+            _this.setState(state, function () {
+              return _this.onChange && _this.onChange(state.spec);
+            });
           });
           (0, _prepareSpec.default)(spec, 'spec', _this.handleUpdate);
           _this.state = {
             spec: spec
           };
+          _this.onChange = onChange;
           return _this;
         }
 

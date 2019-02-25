@@ -25,7 +25,7 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _react = _interopRequireWildcard(require("react"));
 
-require("./style.css");
+require("./style.scss");
 
 /**
  * 宽高比固定的容器
