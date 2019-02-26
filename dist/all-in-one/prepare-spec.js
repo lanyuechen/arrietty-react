@@ -23,7 +23,8 @@ function isObject(obj) {
 
 
 function prepareSpec(obj, path, cb) {
-  if (!isObject(obj)) {
+  //包含以‘@’或‘$’起始的key不做处理
+  if (!isObject(obj) || path.indexOf('.@') > -1 || path.indexOf('.$') > -1) {
     return obj;
   }
 

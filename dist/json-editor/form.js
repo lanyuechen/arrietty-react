@@ -59,6 +59,11 @@ function (_Component) {
   }
 
   (0, _createClass2.default)(Form, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate(nextProps) {
+      return nextProps.value !== this.props.value;
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -68,19 +73,29 @@ function (_Component) {
           value = _this$props.value;
       return _react.default.createElement("div", {
         className: "form-group"
-      }, name, _react.default.createElement("ul", null, Object.entries(value).map(function (_ref) {
-        var _ref2 = (0, _slicedToArray2.default)(_ref, 2),
-            k = _ref2[0],
-            v = _ref2[1];
+      }, _react.default.createElement("label", {
+        className: "form-group-title"
+      }, name), _react.default.createElement("ul", {
+        className: "form-group-list"
+      }, Object.entries(value).filter(function (_ref) {
+        var _ref2 = (0, _slicedToArray2.default)(_ref, 1),
+            k = _ref2[0];
+
+        return k.indexOf('@') === -1;
+      }).map(function (_ref3) {
+        var _ref4 = (0, _slicedToArray2.default)(_ref3, 2),
+            k = _ref4[0],
+            v = _ref4[1];
 
         return _react.default.createElement("li", {
           key: k
-        }, Form.isObj(v) ? _react.default.createElement(Form, {
+        }, Form.isObj(v) && !value["@".concat(k)] ? _react.default.createElement(Form, {
           value: v,
           name: k
         }) : _react.default.createElement(_item.default, {
           name: k,
           value: v,
+          describe: value["@".concat(k)],
           onChange: function onChange(v) {
             return _this2.handleChange(k, v);
           }

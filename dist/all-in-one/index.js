@@ -67,7 +67,7 @@ var _default = function _default(spec, onChange) {
       (0, _createClass2.default)(_temp, [{
         key: "render",
         value: function render() {
-          console.log('[render]', this.state.spec);
+          // console.log('[render]', this.state.spec);
           return _react.default.createElement(C, (0, _extends2.default)({}, this.props, {
             spec: this.state.spec
           }));
