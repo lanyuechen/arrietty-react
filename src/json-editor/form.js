@@ -27,8 +27,8 @@ export default class Form extends Component {
 
     return (
       <div className="form-group">
-        {name}
-        <ul>
+        <label className="form-group-title">{name}</label>
+        <ul className="form-group-list">
           {Object.entries(value).map(([k, v]) => (
             <li key={k}>
               {Form.isObj(v) ? (

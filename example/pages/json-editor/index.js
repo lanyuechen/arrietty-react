@@ -12,6 +12,11 @@ const spec = {
     "align-items": "center",
     "justify-content": "center"
   },
+  "config": {
+    "user": {
+      "name": "小明"
+    }
+  },
   "children": "hello world"
 };
 

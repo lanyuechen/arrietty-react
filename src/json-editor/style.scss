@@ -1,7 +1,26 @@
 .form-group {
-  border: 1px solid #aaa;
-  padding: 5px;
-  * {
-    outline: none!important;
+  position: relative;
+  border: 1px solid #bbb;
+  padding: 15px;
+  .form-group-title {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    padding: 0 5px;
+    font-size: 12px;
+    font-weight: normal;
+    background: #fff;
+  }
+  .form-group-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    &>li {
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+      &:last-child {
+        border: none;
+      }
+    }
   }
 }

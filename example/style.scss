@@ -3,6 +3,11 @@ html, body {
   margin: 0;
 }
 
+* {
+  outline: none!important;
+}
+
 #app {
   height: 100%;
+  overflow: hidden;
 }
