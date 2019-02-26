@@ -2,23 +2,7 @@ import React, { Component } from 'react';
 
 import JsonEditor from '@/json-editor';
 
-const spec = {
-  "style": {
-    "background": "lightcoral",
-    "width": "100%",
-    "height": "100%",
-    "font-size": "32px",
-    "display": "flex",
-    "align-items": "center",
-    "justify-content": "center"
-  },
-  "config": {
-    "user": {
-      "name": "小明"
-    }
-  },
-  "children": "hello world"
-};
+import spec from './spec.json';
 
 export default class Demo extends Component {
   constructor(props) {

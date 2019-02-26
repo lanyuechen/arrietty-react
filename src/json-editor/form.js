@@ -13,6 +13,10 @@ export default class Form extends Component {
     super(props);
   }
 
+  shouldComponentUpdate(nextProps) {
+    return nextProps.value !== this.props.value;
+  }
+
   handleChange = (k, v) => {
     const { value } = this.props;
     value.$update({
@@ -29,12 +33,17 @@ export default class Form extends Component {
       <div className="form-group">
         <label className="form-group-title">{name}</label>
         <ul className="form-group-list">
-          {Object.entries(value).map(([k, v]) => (
+          {Object.entries(value).filter(([k]) => k.indexOf('@') === -1).map(([k, v]) => (
             <li key={k}>
-              {Form.isObj(v) ? (
+              {Form.isObj(v) && !value[`@${k}`] ? (
                 <Form value={v} name={k} />
               ): (
-                <Item name={k} value={v} onChange={(v) => this.handleChange(k, v)} />
+                <Item 
+                  name={k} 
+                  value={v} 
+                  describe={value[`@${k}`]} 
+                  onChange={(v) => this.handleChange(k, v)}
+                />
               )}
             </li>
           ))}
