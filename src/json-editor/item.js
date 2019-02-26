@@ -16,6 +16,7 @@ export default class extends Component {
 
   render() {
     const { name, value } = this.props;
+    console.log('[render form item]', name);
 
     return (
       <label>

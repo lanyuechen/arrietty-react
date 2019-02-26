@@ -24,13 +24,13 @@ export default class Home extends Component {
         <ul>
           <li><NavLink to={'/'}>/</NavLink></li>
           {Object.keys(DEMO).map(k => (
-            <li><NavLink to={k}>{k}</NavLink></li>
+            <li key={k}><NavLink to={k}>{k}</NavLink></li>
           ))}
         </ul>
 
         <Switch>
           {Object.keys(DEMO).map(k => (
-            <Route path={k} component={DEMO[k]} />
+            <Route key={k} path={k} component={DEMO[k]} />
           ))}
         </Switch>
       </div>

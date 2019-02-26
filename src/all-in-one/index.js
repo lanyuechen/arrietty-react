@@ -20,7 +20,7 @@ export default (spec, onChange) => (C) => class extends Component {
   };
 
   render() {
-    console.log('[render]', this.state.spec);
+    // console.log('[render]', this.state.spec);
     return (
       <C {...this.props} spec={this.state.spec} />
     );
