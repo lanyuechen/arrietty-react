@@ -10,7 +10,7 @@ const through     = require('through2');
 gulp.task('babel', function(){
   return gulp.src(['./src/**/*.js', './src/**/*.jsx'])
     .pipe(babel())
-    .pipe(rename())
+    .pipe(replace(/\.scss/g, '.css'))
     .pipe(gulp.dest('dist'))
 });
 
@@ -38,26 +38,18 @@ gulp.task('sass', function() {
 gulp.task('default', ['babel', 'sass', 'concat']);
 
 function modifyStreamContent(modify) {
-  return through.obj(function(file, endcoding, callback) {
-      if(file.isNull()) {
-          this.push(file)
-          return callback()
-      }
-      if(file.isStream()) {
-          log("streaming not supported", "error")
-          return callback()
-      }
-      var content = file.contents.toString()
-      content = modify(content, file.path) || content
-      file.contents = new Buffer.from(content)
-      this.push(file)
+  return through.obj(function(chunk, enc, callback) {
+      var content = chunk.contents.toString()
+      content = modify(content, chunk.path) || content
+      chunk.contents = new Buffer.from(content)
+      this.push(chunk)
       callback()
   })
 }
 
-function rename() {
-  return modifyStreamContent((content, filePath) => {
-    content = content.replace(/\.scss/g, ".css");
+function replace(reg, txt) {
+  return modifyStreamContent((content) => {
+    content = content.replace(reg, txt);
     return content
   })
 }
