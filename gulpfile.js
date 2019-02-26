@@ -21,13 +21,6 @@ gulp.task('concat', ['sass'], function() {
   .pipe(gulp.dest('dist'));
 });
 
-// 构建css
-gulp.task('build-css', ['sass'], function() {
-  return gulp.src(['./dist/index.css'])
-    .pipe(concat("dh-charts.min.css"))
-    .pipe(gulp.dest('lib'));
-});
-
 // 编译sass
 gulp.task('sass', function() {
   return gulp.src('./src/**/*.scss')
@@ -39,17 +32,17 @@ gulp.task('default', ['babel', 'sass', 'concat']);
 
 function modifyStreamContent(modify) {
   return through.obj(function(chunk, enc, callback) {
-      var content = chunk.contents.toString()
-      content = modify(content, chunk.path) || content
-      chunk.contents = new Buffer.from(content)
-      this.push(chunk)
-      callback()
+      var content = chunk.contents.toString();
+      content = modify(content, chunk.path) || content;
+      chunk.contents = new Buffer.from(content);
+      this.push(chunk);
+      callback();
   })
 }
 
 function replace(reg, txt) {
   return modifyStreamContent((content) => {
     content = content.replace(reg, txt);
-    return content
+    return content;
   })
 }

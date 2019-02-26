@@ -19,9 +19,9 @@ var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
@@ -33,47 +33,48 @@ var _prepareSpec = _interopRequireDefault(require("./prepare-spec"));
 
 var _default = function _default(spec, onChange) {
   return function (C) {
-    return (
-      /*#__PURE__*/
-      function (_Component) {
-        (0, _inherits2.default)(_class2, _Component);
+    var _temp;
 
-        function _class2(props) {
-          var _this;
+    return _temp =
+    /*#__PURE__*/
+    function (_Component) {
+      (0, _inherits2.default)(_temp, _Component);
 
-          (0, _classCallCheck2.default)(this, _class2);
-          _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_class2).call(this, props));
-          (0, _defineProperty2.default)((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), "handleUpdate", function (path, spec) {
-            spec = path.split('.').reverse().reduce(function (p, n) {
-              return (0, _defineProperty2.default)({}, n, p);
-            }, spec);
-            var state = (0, _immutabilityHelper.default)(_this.state, spec);
-            (0, _prepareSpec.default)(state.spec, 'spec', _this.handleUpdate);
+      function _temp(props) {
+        var _this;
 
-            _this.setState(state, function () {
-              return _this.onChange && _this.onChange(state.spec);
-            });
+        (0, _classCallCheck2.default)(this, _temp);
+        _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_temp).call(this, props));
+        (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "handleUpdate", function (path, spec) {
+          spec = path.split('.').reverse().reduce(function (p, n) {
+            return (0, _defineProperty2.default)({}, n, p);
+          }, spec);
+          var state = (0, _immutabilityHelper.default)(_this.state, spec);
+          (0, _prepareSpec.default)(state.spec, 'spec', _this.handleUpdate);
+
+          _this.setState(state, function () {
+            return _this.onChange && _this.onChange(state.spec);
           });
-          (0, _prepareSpec.default)(spec, 'spec', _this.handleUpdate);
-          _this.state = {
-            spec: spec
-          };
-          _this.onChange = onChange;
-          return _this;
-        }
+        });
+        (0, _prepareSpec.default)(spec, 'spec', _this.handleUpdate);
+        _this.state = {
+          spec: spec
+        };
+        _this.onChange = onChange;
+        return _this;
+      }
 
-        (0, _createClass2.default)(_class2, [{
-          key: "render",
-          value: function render() {
-            console.log('[render]', this.state.spec);
-            return _react.default.createElement(C, (0, _extends2.default)({}, this.props, {
-              spec: this.state.spec
-            }));
-          }
-        }]);
-        return _class2;
-      }(_react.Component)
-    );
+      (0, _createClass2.default)(_temp, [{
+        key: "render",
+        value: function render() {
+          console.log('[render]', this.state.spec);
+          return _react.default.createElement(C, (0, _extends2.default)({}, this.props, {
+            spec: this.state.spec
+          }));
+        }
+      }]);
+      return _temp;
+    }(_react.Component), _temp;
   };
 };
 

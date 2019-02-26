@@ -1,15 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");    //提取css到单独文件
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");    //解决MiniCssExtractPlugin导致的重复问题
 
 module.exports = (env, argv) => {
-  if (argv.mode !== 'production') {   //非开发或生产环境,分析用
-    //plugins.push(new BundleAnalyzerPlugin());
-  }
-
   return {
     mode: argv.mode || 'development',
     entry: {
@@ -25,25 +17,12 @@ module.exports = (env, argv) => {
       host: '0.0.0.0',
       historyApiFallback: true
     },
-    //optimization: {
-    //  minimizer: [
-    //    new OptimizeCSSAssetsPlugin({})
-    //  ]
-    //},
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
         template: 'example/index.html'
-      }),
-      new MiniCssExtractPlugin({
-        filename: "css/style.css",
-        chunkFilename: "[id].css"
       })
     ],
-    externals: {
-      "react": "React",
-      "react-dom": "ReactDOM"
-    },
     resolve: {
       extensions: ['.js'],
       alias: {
@@ -62,14 +41,14 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/,
           use: [
-            MiniCssExtractPlugin.loader,
+            'style-loader',
             'css-loader'
           ]
         },
         {
           test: /\.scss$/,
           use: [
-            MiniCssExtractPlugin.loader,
+            'style-loader',
             'css-loader',
             'sass-loader'
           ]

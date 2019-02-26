@@ -8,6 +8,12 @@
     "@babel/preset-react"
   ],
   "plugins": [
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "@": "./src",
+      }
+    }],
     ["@babel/plugin-proposal-decorators", {"legacy": true}],
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-class-properties",
