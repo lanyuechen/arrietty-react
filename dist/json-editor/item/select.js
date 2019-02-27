@@ -46,18 +46,17 @@ function (_Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          name = _this$props.name,
           value = _this$props.value,
-          _this$props$describe = _this$props.describe,
-          describe = _this$props$describe === void 0 ? {
-        type: 'text'
-      } : _this$props$describe;
-      return _react.default.createElement("input", {
-        type: describe.type,
-        name: name,
-        value: value,
-        onChange: this.handleChange
-      });
+          describe = _this$props.describe;
+      return _react.default.createElement("select", {
+        onChange: this.handleChange,
+        value: value
+      }, describe.data && describe.data.map(function (d) {
+        return _react.default.createElement("option", {
+          key: d.key,
+          value: d.key
+        }, d.name);
+      }));
     }
   }]);
   return _default;

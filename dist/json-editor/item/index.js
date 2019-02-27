@@ -27,6 +27,17 @@ var _checkbox = _interopRequireDefault(require("./checkbox"));
 
 var _radio = _interopRequireDefault(require("./radio"));
 
+var _select = _interopRequireDefault(require("./select"));
+
+var COMPONENTS = {
+  checkbox: _checkbox.default,
+  //复选框
+  radio: _radio.default,
+  //单选框
+  select: _select.default //下拉框
+
+};
+
 var _default =
 /*#__PURE__*/
 function (_Component) {
@@ -54,11 +65,7 @@ function (_Component) {
         type: 'input'
       } : _this$props$describe;
       console.log('[render form item]', name, describe, value);
-      var C = {
-        checkbox: _checkbox.default,
-        radio: _radio.default,
-        input: _input.default
-      }[describe.type];
+      var C = COMPONENTS[describe.type] || _input.default;
       return _react.default.createElement("label", null, name, ":", _react.default.createElement(C, {
         name: name,
         value: value,
