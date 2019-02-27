@@ -4,6 +4,9 @@
     "user": {
       "name": "小明",
       "age": 19,
+      "@age": {
+        "type": "number"
+      },
       "sex": "man",
       "@sex": {
         "type": "radio",

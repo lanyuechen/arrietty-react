@@ -26,7 +26,12 @@ export default class Demo extends Component {
           onChange={this.handleChange}
         />
         <pre>
-          {JSON.stringify(data, undefined, 2)}
+          {JSON.stringify(data, (k, v) => {
+            if (k.indexOf('@') === 0) {
+              return;
+            }
+            return v;
+          }, 2)}
         </pre>
       </div>
     );
