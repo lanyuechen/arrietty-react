@@ -11,14 +11,13 @@ export default class extends Component {
   }
 
   render() {
-    const { name, value, describe = {type: 'text'} } = this.props;
+    const { value, describe } = this.props;
     return (
-      <input 
-        type={describe.type}
-        name={name}
-        value={value}
-        onChange={this.handleChange}
-      />
+      <select onChange={this.handleChange} value={value}>
+        {describe.data && describe.data.map(d => (
+          <option key={d.key} value={d.key}>{d.name}</option>
+        ))}
+      </select>
     )
   }
 }

@@ -1,13 +1,5 @@
 {
-  "style": {
-    "background": "lightcoral",
-    "width": "100%",
-    "height": "100%",
-    "font-size": "32px",
-    "display": "flex",
-    "align-items": "center",
-    "justify-content": "center"
-  },
+  "name": "json生成表单测试",
   "config": {
     "user": {
       "name": "小明",
@@ -18,6 +10,15 @@
         "data": [
           {"key": "man", "name": "男"},
           {"key": "women", "name": "女"}
+        ]
+      },
+      "city": "shanghai",
+      "@city": {
+        "type": "select",
+        "data": [
+          {"key": "beijing", "name": "北京"},
+          {"key": "shanghai", "name": "上海"},
+          {"key": "tianjin", "name": "天津"}
         ]
       },
       "hoby": ["reading", "running"],
@@ -31,5 +32,5 @@
       }
     }
   },
-  "children": "hello world"
+  "desc": "hello world"
 }
