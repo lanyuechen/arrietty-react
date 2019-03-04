@@ -14,22 +14,18 @@ export default function prepareSpec(obj, path, cb) {
     return obj;
   }
 
-  if (obj.$update) {
-    return obj;
-  }
-
   Object.defineProperties(obj, {
     $update: {
       value: spec => cb(path, spec),
       enumerable: false,
       configurable: false,
-      writable: false
+      writable: true
     },
     $path: {
       value: path,
       enumerable: false,
       configurable: false,
-      writable: false
+      writable: true
     }
   });
 

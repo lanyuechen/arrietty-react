@@ -28,10 +28,6 @@ function prepareSpec(obj, path, cb) {
     return obj;
   }
 
-  if (obj.$update) {
-    return obj;
-  }
-
   Object.defineProperties(obj, {
     $update: {
       value: function value(spec) {
@@ -39,13 +35,13 @@ function prepareSpec(obj, path, cb) {
       },
       enumerable: false,
       configurable: false,
-      writable: false
+      writable: true
     },
     $path: {
       value: path,
       enumerable: false,
       configurable: false,
-      writable: false
+      writable: true
     }
   });
   Object.entries(obj).map(function (_ref) {
