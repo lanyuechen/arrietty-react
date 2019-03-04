@@ -49,6 +49,11 @@ function aioForm(props) {
         var _this$props$spec = this.props.spec,
             name = _this$props$spec.name,
             value = _this$props$spec.value;
+
+        if (!value) {
+          return null;
+        }
+
         return _react.default.createElement("div", null, _react.default.createElement(_form.default, {
           name: name,
           value: value

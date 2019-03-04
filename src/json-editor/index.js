@@ -18,6 +18,9 @@ function aioForm(props) {
 
     render() {
       const { name, value } = this.props.spec;
+      if (!value) {
+        return null;
+      }
       return (
         <div>
           <Form name={name} value={value} />
