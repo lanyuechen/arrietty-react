@@ -25,48 +25,35 @@ var _allInOne = _interopRequireDefault(require("../all-in-one"));
 
 var _form = _interopRequireDefault(require("./form"));
 
-function aioForm(props) {
-  var _dec, _class;
+var AioForm =
+/*#__PURE__*/
+function (_Component) {
+  (0, _inherits2.default)(AioForm, _Component);
 
-  var AioForm = (_dec = (0, _allInOne.default)({
-    name: props.name,
-    value: props.value
-  }, function (spec) {
-    props.onChange && props.onChange(spec);
-  }), _dec(_class =
-  /*#__PURE__*/
-  function (_Component) {
-    (0, _inherits2.default)(AioForm, _Component);
+  function AioForm(props) {
+    (0, _classCallCheck2.default)(this, AioForm);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(AioForm).call(this, props));
+  }
 
-    function AioForm(props) {
-      (0, _classCallCheck2.default)(this, AioForm);
-      return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(AioForm).call(this, props));
-    }
+  (0, _createClass2.default)(AioForm, [{
+    key: "render",
+    value: function render() {
+      var _this$props$spec = this.props.spec,
+          name = _this$props$spec.name,
+          value = _this$props$spec.value;
 
-    (0, _createClass2.default)(AioForm, [{
-      key: "render",
-      value: function render() {
-        var _this$props$spec = this.props.spec,
-            name = _this$props$spec.name,
-            value = _this$props$spec.value;
-
-        if (!value) {
-          return null;
-        }
-
-        return _react.default.createElement("div", null, _react.default.createElement(_form.default, {
-          name: name,
-          value: value
-        }));
+      if (!value) {
+        return null;
       }
-    }]);
-    return AioForm;
-  }(_react.Component)) || _class);
-  return _react.default.createElement(AioForm, {
-    name: props.name,
-    value: props.value
-  });
-}
+
+      return _react.default.createElement(_form.default, {
+        name: name,
+        value: value
+      });
+    }
+  }]);
+  return AioForm;
+}(_react.Component);
 
 var _default =
 /*#__PURE__*/
@@ -78,14 +65,27 @@ function (_Component2) {
 
     (0, _classCallCheck2.default)(this, _default);
     _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_default).call(this, props));
-    _this.aioForm = aioForm(props);
+    _this.AioForm = (0, _allInOne.default)({
+      name: props.name,
+      value: props.value
+    }, function (spec) {
+      props.onChange && props.onChange(spec);
+    })(AioForm);
     return _this;
   }
 
   (0, _createClass2.default)(_default, [{
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate() {
+      return false;
+    }
+  }, {
     key: "render",
     value: function render() {
-      return this.aioForm;
+      return _react.default.createElement(this.AioForm, {
+        name: this.props.name,
+        value: this.props.value
+      });
     }
   }]);
   return _default;

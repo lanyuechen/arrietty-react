@@ -4,41 +4,37 @@ import Aio from '../all-in-one';
 
 import Form from './form';
 
-function aioForm(props) {
-  @Aio({
-    name: props.name, 
-    value: props.value
-  }, (spec) => {
-    props.onChange && props.onChange(spec);
-  })
-  class AioForm extends Component {
-    constructor(props) {
-      super(props);
-    }
-
-    render() {
-      const { name, value } = this.props.spec;
-      if (!value) {
-        return null;
-      }
-      return (
-        <div>
-          <Form name={name} value={value} />
-        </div>
-      )
-    }
+class AioForm extends Component {
+  constructor(props) {
+    super(props);
   }
 
-  return <AioForm name={props.name} value={props.value} />;
+  render() {
+    const { name, value } = this.props.spec;
+    if (!value) {
+      return null;
+    }
+    return (
+      <Form name={name} value={value} />
+    )
+  }
 }
 
 export default class extends Component {
   constructor(props) {
     super(props);
-    this.aioForm = aioForm(props);
+
+    this.AioForm = Aio({
+      name: props.name,
+      value: props.value
+    }, (spec) => {
+      props.onChange && props.onChange(spec);
+    })(AioForm);
   }
 
   render() {
-    return this.aioForm;
+    return (
+      <this.AioForm name={this.props.name} value={this.props.value} />
+    );
   }
 }
