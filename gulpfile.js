@@ -3,7 +3,6 @@
 const gulp        = require('gulp');
 const babel       = require('gulp-babel');
 const sass        = require('gulp-sass');
-const concat      = require('gulp-concat');
 const through     = require('through2');
 
 // 编译js文件
@@ -14,13 +13,6 @@ gulp.task('babel', function(){
     .pipe(gulp.dest('dist'))
 });
 
-// 合并样式文件
-gulp.task('concat', ['sass'], function() {
-  return gulp.src(['./dist/index.css'])
-  .pipe(concat("index.css"))
-  .pipe(gulp.dest('dist'));
-});
-
 // 编译sass
 gulp.task('sass', function() {
   return gulp.src('./src/**/*.scss')
@@ -28,7 +20,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['babel', 'sass', 'concat']);
+gulp.task('default', ['babel', 'sass']);
 
 function modifyStreamContent(modify) {
   return through.obj(function(chunk, enc, callback) {

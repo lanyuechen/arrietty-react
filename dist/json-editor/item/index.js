@@ -29,12 +29,16 @@ var _radio = _interopRequireDefault(require("./radio"));
 
 var _select = _interopRequireDefault(require("./select"));
 
+var _file = _interopRequireDefault(require("./file"));
+
 var COMPONENTS = {
   checkbox: _checkbox.default,
   //复选框
   radio: _radio.default,
   //单选框
-  select: _select.default //下拉框
+  select: _select.default,
+  //下拉框
+  file: _file.default //文件上传
 
 };
 
@@ -61,9 +65,7 @@ function (_Component) {
           value = _this$props.value,
           onChange = _this$props.onChange,
           _this$props$describe = _this$props.describe,
-          describe = _this$props$describe === void 0 ? {
-        type: 'input'
-      } : _this$props$describe;
+          describe = _this$props$describe === void 0 ? {} : _this$props$describe;
       console.log('[render form item]', name, describe, value);
       var C = COMPONENTS[describe.type] || _input.default;
       return _react.default.createElement("label", null, name, ":", _react.default.createElement(C, {

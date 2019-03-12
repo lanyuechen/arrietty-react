@@ -75,11 +75,6 @@ function (_Component2) {
   }
 
   (0, _createClass2.default)(_default, [{
-    key: "shouldComponentUpdate",
-    value: function shouldComponentUpdate() {
-      return false;
-    }
-  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement(this.AioForm, {

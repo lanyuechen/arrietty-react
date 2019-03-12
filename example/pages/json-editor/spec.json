@@ -3,6 +3,10 @@
   "config": {
     "user": {
       "name": "小明",
+      "icon": "icon.png",
+      "@icon": {
+        "type": "file"
+      },
       "age": 19,
       "@age": {
         "type": "number"
