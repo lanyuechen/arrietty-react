@@ -3,9 +3,16 @@
   "config": {
     "user": {
       "name": "小明",
-      "icon": "icon.png",
+      "icon": {
+        "_id": "资源id",
+        "type": "img",
+        "ext": "png"
+      },
       "@icon": {
-        "type": "file"
+        "type": "file",
+        "config": {
+          "url": "http://localhost:3000/api/upload"
+        }
       },
       "age": 19,
       "@age": {
