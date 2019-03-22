@@ -9,6 +9,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
@@ -60,21 +64,31 @@ var _default =
 function (_Component2) {
   (0, _inherits2.default)(_default, _Component2);
 
-  function _default(props) {
+  function _default(_props) {
     var _this;
 
     (0, _classCallCheck2.default)(this, _default);
-    _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_default).call(this, props));
-    _this.AioForm = (0, _allInOne.default)({
-      name: props.name,
-      value: props.value
-    }, function (spec) {
-      props.onChange && props.onChange(spec);
-    })(AioForm);
+    _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_default).call(this, _props));
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "prepare", function (props) {
+      return (0, _allInOne.default)({
+        name: props.name,
+        value: props.value
+      }, function (spec) {
+        props.onChange && props.onChange(spec);
+      })(AioForm);
+    });
+    _this.AioForm = _this.prepare(_props);
     return _this;
   }
 
   (0, _createClass2.default)(_default, [{
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.value !== this.props.value) {
+        this.AioForm = this.prepare(nextProps);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement(this.AioForm, {
