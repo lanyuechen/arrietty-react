@@ -52,10 +52,7 @@
 {
   "foo": {
     "_id": "资源id",
-    "ext": "png",
-    "pathname": "/upload",
-    "host" : "localhost:3000",
-    "protocol": "http"
+    "ext": "png"
   },
   "@foo": {
     "type": "file",
