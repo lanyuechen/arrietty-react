@@ -6,12 +6,15 @@
       "icon": {
         "_id": "60e8f77967580f9a41999524ea32b6ea",
         "type": "img",
-        "ext": "jpg"
+        "ext": "jpg",
+        "pathname": "/upload",
+        "host": "localhost:3000",
+        "protocol": "http"
       },
       "@icon": {
         "type": "file",
         "config": {
-          "url": "http://localhost:3001/api/upload"
+          "url": "http://localhost:3000/api/upload"
         }
       },
       "age": 19,

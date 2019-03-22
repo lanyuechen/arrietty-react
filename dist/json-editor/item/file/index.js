@@ -25,6 +25,8 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _react = _interopRequireWildcard(require("react"));
 
+require("./style.css");
+
 var _default =
 /*#__PURE__*/
 function (_Component) {
@@ -36,8 +38,32 @@ function (_Component) {
     (0, _classCallCheck2.default)(this, _default);
     _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(_default).call(this, props));
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "handleChange", function (e) {
-      var onChange = _this.props.onChange;
-      onChange && onChange(e.target.value);
+      var _this$props = _this.props,
+          onChange = _this$props.onChange,
+          describe = _this$props.describe;
+      var _describe$config = describe.config,
+          url = _describe$config.url,
+          _describe$config$name = _describe$config.name,
+          name = _describe$config$name === void 0 ? 'bin' : _describe$config$name;
+      console.log('==', name);
+      var file = e.target.files[0];
+      var body = new FormData();
+      body.append(name, file);
+      console.log('describe', describe);
+      fetch(url, {
+        method: 'POST',
+        body: body // 注！加headers会导致上传失败，原因未知
+        // headers: {
+        //   'Content-Type': 'multipart/form-data'
+        // }
+
+      }).then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        if (res.code === 200) {
+          onChange && onChange(res.msg);
+        }
+      });
     });
     return _this;
   }
@@ -45,13 +71,20 @@ function (_Component) {
   (0, _createClass2.default)(_default, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          name = _this$props.name,
-          value = _this$props.value,
-          describe = _this$props.describe;
-      return _react.default.createElement("input", {
-        type: "file"
-      });
+      var _this$props2 = this.props,
+          name = _this$props2.name,
+          value = _this$props2.value,
+          describe = _this$props2.describe;
+      console.log('------', name, value, describe);
+      return _react.default.createElement("div", {
+        className: "ar-img-upload"
+      }, value && value._id ? _react.default.createElement("img", {
+        src: "".concat(value.protocol, "://").concat(value.host).concat(value.pathname, "/").concat(value._id, ".").concat(value.ext),
+        alt: "IMG"
+      }) : 'IMG', _react.default.createElement("input", {
+        type: "file",
+        onChange: this.handleChange
+      }));
     }
   }]);
   return _default;

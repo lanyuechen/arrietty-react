@@ -52,9 +52,10 @@
 {
   "foo": {
     "_id": "资源id",
-    "type": "img",    //todo 后序添加更多支持
     "ext": "png",
-    ...
+    "pathname": "/upload",
+    "host" : "localhost:3000",
+    "protocol": "http"
   },
   "@foo": {
     "type": "file",
