@@ -24,17 +24,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
 
-    this.AioForm = this.prepare(props);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.props.value) {
-      this.AioForm = this.prepare(nextProps);
-    }
-  }
-
-  prepare = (props) => {
-    return Aio({
+    this.AioForm = Aio({
       name: props.name,
       value: props.value
     }, (spec) => {
