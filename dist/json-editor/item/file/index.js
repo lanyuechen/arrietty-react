@@ -75,7 +75,6 @@ function (_Component) {
           name = _this$props2.name,
           value = _this$props2.value,
           describe = _this$props2.describe;
-      console.log('------', name, value, describe);
       return _react.default.createElement("div", {
         className: "ar-img-upload"
       }, value && value._id ? _react.default.createElement("img", {

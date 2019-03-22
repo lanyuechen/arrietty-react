@@ -34,7 +34,6 @@ export default class extends Component {
 
   render() {
     const { name, value, describe } = this.props;
-    console.log('------', name, value, describe)
     return (
       <div className="ar-img-upload">
         {value && value._id ? (
