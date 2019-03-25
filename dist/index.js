@@ -29,6 +29,12 @@ Object.defineProperty(exports, "JsonEditor", {
     return _jsonEditor.default;
   }
 });
+Object.defineProperty(exports, "dnd", {
+  enumerable: true,
+  get: function get() {
+    return _dnd2.default;
+  }
+});
 
 var _flex = _interopRequireDefault(require("./flex"));
 
@@ -37,3 +43,5 @@ var _allInOne = _interopRequireDefault(require("./all-in-one"));
 var _aspectRatioBox = _interopRequireDefault(require("./aspect-ratio-box"));
 
 var _jsonEditor = _interopRequireDefault(require("./json-editor"));
+
+var _dnd2 = _interopRequireDefault(require("./dnd"));
