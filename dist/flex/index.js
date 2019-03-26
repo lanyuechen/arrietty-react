@@ -55,7 +55,8 @@ function (_Component) {
           flexShrink: width || height ? 0 : 1
         })
       }, _react.default.Children.map(children, function (child) {
-        var isFlex = child.type && child.type.name === 'Flex';
+        var isFlex = child.type && child.type.name === Flex.name; //todo 有可能会受打包影响！
+
         var type = vertical ? 'height' : 'width';
 
         if (isFlex) {

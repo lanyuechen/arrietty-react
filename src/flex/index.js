@@ -21,7 +21,7 @@ export default class Flex extends Component {
         }}
       >
         {React.Children.map(children, child => {
-          const isFlex = child.type && child.type.name === 'Flex';
+          const isFlex = child.type && child.type.name === Flex.name;   //todo 有可能会受打包影响！
           const type = vertical ? 'height' : 'width';
           if (isFlex) {
             return {
