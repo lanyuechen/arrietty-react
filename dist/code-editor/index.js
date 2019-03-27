@@ -52,6 +52,11 @@ function (_Component) {
       });
     }
   }, {
+    key: "shouldComponentUpdate",
+    value: function shouldComponentUpdate() {
+      return false;
+    }
+  }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {

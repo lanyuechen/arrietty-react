@@ -20,6 +20,10 @@ export default class extends Component {
     })
   }
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     return (
       <div className="f-c-code-editor" ref="container">
