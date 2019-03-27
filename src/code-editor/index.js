@@ -27,7 +27,7 @@ export default class extends Component {
   render() {
     return (
       <div className="f-c-code-editor" ref="container">
-        {this.props.children}
+        {this.props.value || this.props.children}
       </div>
     )
   }

@@ -62,7 +62,7 @@ function (_Component) {
       return _react.default.createElement("div", {
         className: "f-c-code-editor",
         ref: "container"
-      }, this.props.children);
+      }, this.props.value || this.props.children);
     }
   }]);
   return _default;
