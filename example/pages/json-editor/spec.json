@@ -5,11 +5,7 @@
       "name": "小明",
       "icon": {
         "_id": "60e8f77967580f9a41999524ea32b6ea",
-        "type": "img",
-        "ext": "jpg",
-        "pathname": "/upload",
-        "host": "localhost:3000",
-        "protocol": "http"
+        "ext": "jpg"
       },
       "@icon": {
         "type": "file",
@@ -46,6 +42,10 @@
           {"key": "running", "name": "跑步"},
           {"key": "sleeping", "name": "睡觉"}
         ]
+      },
+      "txt": "xxx",
+      "@txt": {
+        "type": "textarea"
       }
     }
   },

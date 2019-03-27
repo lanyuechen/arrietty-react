@@ -31,6 +31,8 @@ var _select = _interopRequireDefault(require("./select"));
 
 var _file = _interopRequireDefault(require("./file"));
 
+var _textarea = _interopRequireDefault(require("./textarea"));
+
 var COMPONENTS = {
   checkbox: _checkbox.default,
   //复选框
@@ -38,7 +40,9 @@ var COMPONENTS = {
   //单选框
   select: _select.default,
   //下拉框
-  file: _file.default //文件上传
+  file: _file.default,
+  //文件上传
+  textarea: _textarea.default //文本域
 
 };
 
