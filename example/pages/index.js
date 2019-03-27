@@ -5,12 +5,14 @@ import AioDemo from './all-in-one';
 import FlexDemo from './flex';
 import AspectRatioBoxDemo from './aspect-ratio-box';
 import JsonEditor from './json-editor';
+import CodeEditor from './code-editor';
 
 const DEMO = {
   '/all-in-one': AioDemo,
   '/flex': FlexDemo,
   '/aspect-ratio-box': AspectRatioBoxDemo,
-  '/json-editor': JsonEditor
+  '/json-editor': JsonEditor,
+  '/code-editor': CodeEditor
 };
 
 export default class Home extends Component {

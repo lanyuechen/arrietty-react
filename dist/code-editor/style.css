@@ -1,0 +1,9 @@
+.f-c-code-editor {
+  width: 100%;
+  height: 100%; }
+  .f-c-code-editor .ace-monokai {
+    background: rgba(0, 0, 0, 0.5); }
+    .f-c-code-editor .ace-monokai .ace_gutter {
+      background: rgba(0, 0, 0, 0.6); }
+    .f-c-code-editor .ace-monokai .ace_gutter-active-line {
+      background: rgba(0, 0, 0, 0.2); }
