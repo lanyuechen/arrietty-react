@@ -28,7 +28,10 @@ export default class extends Component {
     const { name, value, onChange, describe = {} } = this.props;
     console.log('[render form item]', name, describe, value);
 
-    const C = COMPONENTS[describe.type] || Input;
+    let C = COMPONENTS[describe.type] || Input;
+    if (describe.type === 'custom' && describe.Component) {
+      C = describe.Component;
+    }
 
     return (
       <label>

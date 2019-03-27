@@ -74,3 +74,16 @@
   }
 }
 ```
+
+### 自定义
+
+```js
+{
+  "foo": "anything",
+  "@foo": {
+    "type": "custom",
+    "Component": React.Component
+  }
+}
+```
+> 注：Component需要实现name、value、describe、onChange几个props的处理

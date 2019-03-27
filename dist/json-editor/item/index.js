@@ -72,6 +72,11 @@ function (_Component) {
           describe = _this$props$describe === void 0 ? {} : _this$props$describe;
       console.log('[render form item]', name, describe, value);
       var C = COMPONENTS[describe.type] || _input.default;
+
+      if (describe.type === 'custom' && describe.Component) {
+        C = describe.Component;
+      }
+
       return _react.default.createElement("label", null, name, ":", _react.default.createElement(C, {
         name: name,
         value: value,
