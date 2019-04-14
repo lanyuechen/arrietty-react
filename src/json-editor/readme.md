@@ -86,4 +86,3 @@
   }
 }
 ```
-> 注：Component需要实现name、value、describe、onChange几个props的处理

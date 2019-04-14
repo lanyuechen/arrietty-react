@@ -12,6 +12,7 @@ export default function(accepts = [], props = {}) {
     }
 
     function handleDragLeave(e) {
+      e.stopPropagation();
       e.preventDefault();
       props.onDragLeave && props.onDragLeave(e);
     }
@@ -22,6 +23,7 @@ export default function(accepts = [], props = {}) {
     }
 
     function handleDrop(e) {
+      e.stopPropagation();
       e.preventDefault();
       const data = getData(e);
       if (accepts.indexOf(data.type) === -1) {

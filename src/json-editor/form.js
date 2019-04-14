@@ -33,7 +33,12 @@ export default class Form extends Component {
       <div className="form-group">
         <label className="form-group-title">{name}</label>
         <ul className="form-group-list">
-          {Object.entries(value).filter(([k]) => k.indexOf('@') === -1).map(([k, v]) => (
+          {Object.entries(value).filter(([k]) => {
+            return (
+              k.indexOf('@') === -1 &&
+              (!value[`@${k}`] || value[`@${k}`].type !== 'hidden')
+            );
+          }).map(([k, v]) => (
             <li key={k}>
               {Form.isObj(v) && !value[`@${k}`] ? (
                 <Form value={v} name={k} />

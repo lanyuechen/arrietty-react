@@ -81,7 +81,7 @@ function (_Component) {
         var _ref2 = (0, _slicedToArray2.default)(_ref, 1),
             k = _ref2[0];
 
-        return k.indexOf('@') === -1;
+        return k.indexOf('@') === -1 && (!value["@".concat(k)] || value["@".concat(k)].type !== 'hidden');
       }).map(function (_ref3) {
         var _ref4 = (0, _slicedToArray2.default)(_ref3, 2),
             k = _ref4[0],

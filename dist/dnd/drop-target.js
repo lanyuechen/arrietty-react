@@ -24,6 +24,7 @@ function _default() {
     }
 
     function handleDragLeave(e) {
+      e.stopPropagation();
       e.preventDefault();
       props.onDragLeave && props.onDragLeave(e);
     }
@@ -34,6 +35,7 @@ function _default() {
     }
 
     function handleDrop(e) {
+      e.stopPropagation();
       e.preventDefault();
       var data = getData(e);
 
