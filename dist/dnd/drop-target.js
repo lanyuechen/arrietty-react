@@ -18,11 +18,19 @@ function _default() {
     }
 
     function handleDragEnter(e) {
+      e.stopPropagation();
       e.preventDefault();
+      props.onDragEnter && props.onDragEnter(e);
+    }
+
+    function handleDragLeave(e) {
+      e.preventDefault();
+      props.onDragLeave && props.onDragLeave(e);
     }
 
     function handleDragOver(e) {
       e.preventDefault();
+      props.onDragOver && props.onDragOver(e);
     }
 
     function handleDrop(e) {
@@ -39,6 +47,7 @@ function _default() {
     return (0, _objectSpread2.default)({}, widget, {
       props: (0, _objectSpread2.default)({}, widget.props, {
         onDragEnter: handleDragEnter,
+        onDragLeave: handleDragLeave,
         onDragOver: handleDragOver,
         onDrop: handleDrop
       })

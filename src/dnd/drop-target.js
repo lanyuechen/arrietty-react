@@ -6,11 +6,19 @@ export default function(accepts = [], props = {}) {
     }
 
     function handleDragEnter(e) {
+      e.stopPropagation();
       e.preventDefault();
+      props.onDragEnter && props.onDragEnter(e);
+    }
+
+    function handleDragLeave(e) {
+      e.preventDefault();
+      props.onDragLeave && props.onDragLeave(e);
     }
 
     function handleDragOver(e) {
       e.preventDefault();
+      props.onDragOver && props.onDragOver(e);
     }
 
     function handleDrop(e) {
@@ -27,6 +35,7 @@ export default function(accepts = [], props = {}) {
       props: {
         ...widget.props,
         onDragEnter: handleDragEnter,
+        onDragLeave: handleDragLeave,
         onDragOver: handleDragOver,
         onDrop: handleDrop
       }
