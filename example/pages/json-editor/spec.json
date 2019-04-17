@@ -10,7 +10,7 @@
       "@icon": {
         "type": "file",
         "config": {
-          "url": "http://localhost:3000/api/upload"
+          "url": "http://localhost:3721/api/upload"
         }
       },
       "age": 19,

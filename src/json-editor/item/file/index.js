@@ -37,7 +37,7 @@ export default class extends Component {
     return (
       <div className="ar-img-upload">
         {value && value._id ? (
-          <img src={`http://localhost:3000/upload/${value._id}.${value.ext}`} alt="IMG"/>
+          <img src={`http://localhost:3721/upload/${value._id}.${value.ext}`} alt="IMG"/>
         ) : (
           'IMG'
         )}

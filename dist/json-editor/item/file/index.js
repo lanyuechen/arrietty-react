@@ -78,7 +78,7 @@ function (_Component) {
       return _react.default.createElement("div", {
         className: "ar-img-upload"
       }, value && value._id ? _react.default.createElement("img", {
-        src: "http://localhost:3000/upload/".concat(value._id, ".").concat(value.ext),
+        src: "http://localhost:3721/upload/".concat(value._id, ".").concat(value.ext),
         alt: "IMG"
       }) : 'IMG', _react.default.createElement("input", {
         type: "file",
