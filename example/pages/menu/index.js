@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import Menu from '@/menu';
 
-import Editable from './editable';
-
 export default class extends Component {
   constructor(props) {
     super(props);
