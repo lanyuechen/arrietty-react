@@ -1,0 +1,48 @@
+.ar-menu {
+  list-style: none;
+  user-select: none;
+  margin: 0;
+  width: 100%;
+  padding-left: 10px;
+  .ar-menu-item {
+    font-size: 12px;
+    color: #666;
+    .ar-menu-item-head {
+      color: inherit;
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 2px 5px;
+      cursor: pointer;
+      &:hover {
+        background: #eee;
+      }
+      &::before {
+        content: '📁 ';
+        vertical-align: middle;
+        font-size: 12px;
+        display: inline-block;
+        transform: scale(0.8);
+      }
+    }
+
+    &.ar-menu-item-file > .ar-menu-item-head::before {
+      content: '🖥 ';
+    }
+
+    .ar-submenu {
+      overflow: hidden;
+      height: 0;
+    }
+    &[active] > {
+      .ar-menu-item-head {
+        &::before {
+          content: '📂 ';
+        }
+      }
+      .ar-submenu {
+        height: auto;
+      }
+    }
+  }
+}

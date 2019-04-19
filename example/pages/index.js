@@ -7,6 +7,7 @@ import AspectRatioBoxDemo from './aspect-ratio-box';
 import JsonEditor from './json-editor';
 import CodeEditor from './code-editor';
 import Dnd from './dnd';
+import Menu from './menu';
 
 const DEMO = {
   '/all-in-one': AioDemo,
@@ -14,7 +15,8 @@ const DEMO = {
   '/aspect-ratio-box': AspectRatioBoxDemo,
   '/json-editor': JsonEditor,
   '/code-editor': CodeEditor,
-  '/dnd': Dnd
+  '/dnd': Dnd,
+  '/menu': Menu
 };
 
 export default class Home extends Component {
