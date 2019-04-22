@@ -38,6 +38,10 @@ function (_Component) {
     (0, _classCallCheck2.default)(this, Menu);
     _this = (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Menu).call(this, props));
     (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "handleClick", function (e, d) {
+      var _this$props$onClick, _this$props;
+
+      (_this$props$onClick = (_this$props = _this.props).onClick) === null || _this$props$onClick === void 0 ? void 0 : _this$props$onClick.call(_this$props, e, d);
+
       if (!d.isFile) {
         var item = e.currentTarget.parentNode;
 
@@ -56,9 +60,10 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var _this$props = this.props,
-          data = _this$props.data,
-          _onContextMenu = _this$props.onContextMenu;
+      var _this$props2 = this.props,
+          data = _this$props2.data,
+          _onContextMenu = _this$props2.onContextMenu,
+          onClick = _this$props2.onClick;
       return _react.default.createElement("ul", {
         className: "ar-menu"
       }, data.map(function (d) {
@@ -78,6 +83,7 @@ function (_Component) {
         }, _react.default.createElement(Menu, {
           key: d.name,
           data: d.children,
+          onClick: onClick,
           onContextMenu: _onContextMenu
         })));
       }));

@@ -8,6 +8,7 @@ export default class Menu extends Component {
   }
 
   handleClick = (e, d) => {
+    this.props.onClick?.(e, d);
     if (!d.isFile) {
       const item = e.currentTarget.parentNode;
       if (item.hasAttribute('active')) {
@@ -19,7 +20,7 @@ export default class Menu extends Component {
   }
 
   render() {
-    const { data, onContextMenu } = this.props;
+    const { data, onContextMenu, onClick } = this.props;
     
     return (
       <ul className="ar-menu">
@@ -37,6 +38,7 @@ export default class Menu extends Component {
                 <Menu 
                   key={d.name} 
                   data={d.children} 
+                  onClick={onClick}
                   onContextMenu={onContextMenu}
                 />
               </div>
