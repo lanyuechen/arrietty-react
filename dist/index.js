@@ -35,6 +35,30 @@ Object.defineProperty(exports, "CodeEditor", {
     return _codeEditor.default;
   }
 });
+Object.defineProperty(exports, "Menu", {
+  enumerable: true,
+  get: function get() {
+    return _menu.default;
+  }
+});
+Object.defineProperty(exports, "ContextMenu", {
+  enumerable: true,
+  get: function get() {
+    return _contextMenu.default;
+  }
+});
+Object.defineProperty(exports, "Editable", {
+  enumerable: true,
+  get: function get() {
+    return _editable.default;
+  }
+});
+Object.defineProperty(exports, "popover", {
+  enumerable: true,
+  get: function get() {
+    return _popover2.default;
+  }
+});
 Object.defineProperty(exports, "dnd", {
   enumerable: true,
   get: function get() {
@@ -51,5 +75,13 @@ var _aspectRatioBox = _interopRequireDefault(require("./aspect-ratio-box"));
 var _jsonEditor = _interopRequireDefault(require("./json-editor"));
 
 var _codeEditor = _interopRequireDefault(require("./code-editor"));
+
+var _menu = _interopRequireDefault(require("./menu"));
+
+var _contextMenu = _interopRequireDefault(require("./context-menu"));
+
+var _editable = _interopRequireDefault(require("./editable"));
+
+var _popover2 = _interopRequireDefault(require("./popover"));
 
 var _dnd2 = _interopRequireDefault(require("./dnd"));
